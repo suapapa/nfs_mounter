@@ -32,4 +32,25 @@ class MountPoint {
       isMounted: isMounted ?? this.isMounted,
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'serverAddress': serverAddress,
+      'serverPath': serverPath,
+      'localPath': localPath,
+    };
+  }
+
+  factory MountPoint.fromJson(Map<String, dynamic> json) {
+    return MountPoint(
+      id: json['id'] as String,
+      name: json['name'] as String,
+      serverAddress: json['serverAddress'] as String,
+      serverPath: json['serverPath'] as String,
+      localPath: json['localPath'] as String,
+      isMounted: false, // Default to false when loaded
+    );
+  }
 }
